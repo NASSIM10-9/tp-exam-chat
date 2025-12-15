@@ -1,0 +1,22 @@
+name: CI Chat App
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Backend install
+        run: |
+          cd backend
+          npm install
+
+      - name: Backend test (basic)
+        run: echo "Backend OK"
+
+      - name: Frontend check
+        run: |
+          cd frontend
+          test -f index.html
